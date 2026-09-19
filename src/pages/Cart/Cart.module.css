@@ -118,6 +118,25 @@
     color: var(--primary-color);
 }
 
+.order-button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px 30px;
+    background: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 29px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    box-shadow: 0px 6.0714287757873535px 24.0714287757873535px 0px rgba(254, 114, 76, 0.20);
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background: var(--primary-hover-color);
+}
+
 @media (max-width: 480px) {
     .item {
         flex-wrap: wrap;

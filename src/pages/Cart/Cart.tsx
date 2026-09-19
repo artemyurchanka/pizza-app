@@ -71,6 +71,9 @@ export function Cart() {
 					<div className={styles.total}>
 						Итого: {total}&nbsp;<span className={styles['total-currency']}>₽</span>
 					</div>
+					<button className={styles['order-button']} type="button">
+						Оформить заказ
+					</button>
 				</>
 			)}
 		</>
