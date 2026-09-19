@@ -14,6 +14,7 @@ export function MenuList({ products }: MenuListProps) {
 					rating={p.rating}
 					price={p.price}
 					image={p.image}
+					weight={p.weight}
 				/>
 			))}
 		</div>

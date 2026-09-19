@@ -41,10 +41,6 @@
   color: var(--primary-color);
 }
 
-.link {
-    text-decoration: none;
-}
-
 .title {
     color: var(--text-color);
     font-size: 18.2px;
@@ -61,6 +57,13 @@
     font-weight: 400;
     line-height: normal;
     text-decoration: none;
+}
+
+.weight {
+    margin-top: 12px;
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .rating {

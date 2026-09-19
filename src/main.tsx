@@ -6,13 +6,9 @@ import { Layout } from './components/Layout/Layout';
 import { CartProvider } from './context/CartProvider';
 import { Cart } from './pages/Cart/Cart';
 import { Error as ErrorPage } from './pages/Error/error';
-import { getProduct } from './helpers/API';
 import './index.css';
 
 const Menu = lazy(() => import('./pages/Menu/Menu').then((m) => ({ default: m.Menu })));
-const ProductPage = lazy(() =>
-	import('./components/Product/Product').then((m) => ({ default: m.Product }))
-);
 
 const router = createHashRouter([
 	{
@@ -30,15 +26,6 @@ const router = createHashRouter([
 			{
 				path: 'cart',
 				element: <Cart />,
-			},
-			{
-				path: 'product/:id',
-				element: (
-					<Suspense fallback={<>Загрузка...</>}>
-						<ProductPage />
-					</Suspense>
-				),
-				loader: async ({ params }) => getProduct(Number(params.id)),
 			},
 			{
 				path: '*',
