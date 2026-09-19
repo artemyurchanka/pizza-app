@@ -7,6 +7,16 @@
   --separator-color: #D4D6E0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
 
 body {
   font-family: "Open Sans", sans-serif;
