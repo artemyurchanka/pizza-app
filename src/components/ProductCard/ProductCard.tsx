@@ -32,11 +32,11 @@ function ProductCard(props: ProductCardProps) {
 						type="button"
 						onClick={handleAddToCart}
 					>
-						<img src="/cart-button-icon.svg" alt="Добавить в корзину" />
+						<img src={`${import.meta.env.BASE_URL}cart-button-icon.svg`} alt="Добавить в корзину" />
 					</button>
 					<div className={styles['rating']}>
 						{props.rating}&nbsp;
-						<img src="/star-icon.svg" alt="" />
+						<img src={`${import.meta.env.BASE_URL}star-icon.svg`} alt="" />
 					</div>
 				</div>
 				<div className={styles['footer']}>

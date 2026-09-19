@@ -21,7 +21,7 @@ const Search = forwardRef<HTMLInputElement, SearchProps>(
 
         <img
           className={styles.icon}
-          src="/search-icon.svg"
+          src={`${import.meta.env.BASE_URL}search-icon.svg`}
           alt="Иконка поиска"
         />
       </div>
