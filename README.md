@@ -37,10 +37,21 @@ npm run dev
 
 ## API
 
-Моковый API реализован на `json-server`. Источник данных — `data/data.json`.
+В режиме разработки данные приходят из мокового API на `json-server` (источник — `data/data.json`):
 
 - `GET /api/products` — список блюд
 - `GET /api/products/:id` — отдельное блюдо
+
+В production-сборке `data/data.json` зашивается в бандл, поэтому сайт работает на статическом хостинге без сервера.
+
+## Публикация на GitHub Pages
+
+Репозиторий содержит GitHub Actions workflow (`.github/workflows/deploy.yml`), который при каждом пуше в ветку `main` собирает проект и публикует его на GitHub Pages.
+
+1. Отправьте код в репозиторий (`git push -u origin main`).
+2. В репозитории откройте **Settings → Pages**.
+3. В поле **Source** выберите **GitHub Actions** и сохраните.
+4. Сайт будет доступен по адресу `https://<логин>.github.io/<имя-репозитория>/`.
 
 ## Структура
 

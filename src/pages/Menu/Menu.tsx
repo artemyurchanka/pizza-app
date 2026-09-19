@@ -1,8 +1,8 @@
 import { useEffect, useState, type ChangeEvent } from 'react';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import Heading from '../../components/Heading/Heading';
 import Search from '../../components/Search/Search';
-import { PREFIX } from '../../helpers/API';
+import { getProducts } from '../../helpers/API';
 import type { Product } from '../../interfaces/product.interface';
 import { MenuList } from './MenuList/MenuList';
 import styles from './Menu.module.css';
@@ -16,8 +16,7 @@ export function Menu() {
 	useEffect(() => {
 		const loadMenu = async () => {
 			try {
-				const { data } = await axios.get<Product[]>(`${PREFIX}/products`);
-				setProducts(data);
+				setProducts(await getProducts());
 				setError(undefined);
 			} catch (e) {
 				console.error(e);

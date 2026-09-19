@@ -1,14 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
 import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import axios from 'axios';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 import { CartProvider } from './context/CartProvider';
 import { Cart } from './pages/Cart/Cart';
 import { Error as ErrorPage } from './pages/Error/error';
-import { PREFIX } from './helpers/API';
-import type { Product } from './interfaces/product.interface';
+import { getProduct } from './helpers/API';
 import './index.css';
 
 const Menu = lazy(() => import('./pages/Menu/Menu').then((m) => ({ default: m.Menu })));
@@ -16,7 +14,7 @@ const ProductPage = lazy(() =>
 	import('./components/Product/Product').then((m) => ({ default: m.Product }))
 );
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: '/',
 		element: <Layout />,
@@ -40,10 +38,7 @@ const router = createBrowserRouter([
 						<ProductPage />
 					</Suspense>
 				),
-				loader: async ({ params }) => {
-					const response = await axios.get<Product>(`${PREFIX}/products/${params.id}`);
-					return response.data;
-				},
+				loader: async ({ params }) => getProduct(Number(params.id)),
 			},
 			{
 				path: '*',
